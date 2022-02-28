@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video player</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/png" href="./media/icon.png">
+
+    <!-- Biblioteca bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Biblioteca pentru icon-uri font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="continut-principal">
+
+        <div class="video-curent">
+            <div class="zona-canvas">
+                <canvas id="canvas" class="canvas-video" title="Click to play">
+                    Your browser does not support the canvas element.
+                </canvas>
+
+                <div class="controale">
+                    <div class="progressBar">
+                        <input id="progressBar" type="range" min="0" max="100" value="0" step="0.01">
+                    </div>
+                    <div class="butoane-time-volum">
+                        <div class="butoane">
+                            <button id="btnPrev" disabled><i class="fas fa-step-backward"
+                                    title="Previous video"></i></button>
+                            <button id="btnPlay" title="Play"><i class="fas fa-play"></i></button>
+                            <button id="btnNext"><i class="fas fa-step-forward" title="Next video"></i></i></button>
+                            <span id="momentCurent">0:00</span> / <span id="durata"></span>
+                        </div>
+
+                        <div id="btnSubtitles" title="Enable subtitles"><i class="far fa-closed-captioning"></i></div>
+
+                        <div class="volum btn-group" id="">
+                            <button id="btnMute" title="Mute"><i class="fas fa-volume-up"></i></button>
+                            <input id="volum" type="range" min="0" max="1" value="1" step="0.01">
+                            <span id="procent-volum">100%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <i class="fas fa-play-circle fa-3x" id="playVideo" title="Click to play"></i>
+            </div>
+
+            <br>
+
+            <p>Add a new video:
+                <input id="adaugaVideo" type="file" accept="video/*">
+            </p>
+
+
+            <div class="row">
+                <div class="col col-sm-2" id="apply-effect">Apply an effect:</div>
+
+                <div class="col col-sm-3">
+                    <span id="valoareLuminozitateSpan">Brightness: 0</span>
+                    <input id="luminozitate" class="form-range" type="range" min="-100" max="100" value="0"
+                        data-effect="luminozitate" title="Change the brightness" />
+                </div>
+
+                <div class="col col-sm-3">
+                    <span id="valoareContrastSpan">Contrast: 0</span>
+                    <input id="contrast" class="form-range" type="range" min="-100" max="100" value="0"
+                        data-effect="contrast" title="Change the contrast" />
+                </div>
+
+                <div class="col col-sm-3 offset-md-1" id="current-effect">Applied: none</div>
+            </div>
+
+
+            <div class="row">
+                <input class="col-6 col-sm-2 btn btn-outline-primary" type="button" data-effect="none" value="None"
+                    title="Remove effect" />
+
+                <input class="col-6 col-sm-2 btn btn-outline-primary" type="button" data-effect="two-channels"
+                    value="Two channels" title="Apply two channels effect" />
+
+                <input class="col-6 col-sm-2 btn btn-outline-primary" type="button" data-effect="yellow" value="Yellow"
+                    title="Apply yellow effect" />
+
+                <input class="col-6 col-sm-2 btn btn-outline-primary" type="button" data-effect="magenta"
+                    value="Magenta" title="Apply magenta effect" />
+
+                <input class="col-6 col-sm-2 btn btn-outline-primary" type="button" data-effect="cyan" value="Cyan"
+                    title="Apply cyan effect" />
+
+                <button class="col-6 col-sm-1 btn btn-outline-primary" data-effect="mirror" title="Mirror video"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-symmetry-vertical" viewBox="0 0 16 16">
+                        <path
+                            d="M7 2.5a.5.5 0 0 0-.939-.24l-6 11A.5.5 0 0 0 .5 14h6a.5.5 0 0 0 .5-.5v-11zm2.376-.484a.5.5 0 0 1 .563.245l6 11A.5.5 0 0 1 15.5 14h-6a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .376-.484zM10 4.46V13h4.658L10 4.46z" />
+                    </svg></button>
+
+                <button class="col-6 col-sm-1 btn btn-outline-primary" data-effect="upside-down"
+                    title="Upside-down video"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-symmetry-horizontal" viewBox="0 0 16 16">
+                        <path
+                            d="M13.5 7a.5.5 0 0 0 .24-.939l-11-6A.5.5 0 0 0 2 .5v6a.5.5 0 0 0 .5.5h11zm.485 2.376a.5.5 0 0 1-.246.563l-11 6A.5.5 0 0 1 2 15.5v-6a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .485.376zM11.539 10H3v4.658L11.54 10z" />
+                    </svg></button>
+            </div>
+
+            <video id="video-principal" controls>
+                Your browser does not support the video element.
+            </video>
+
+        </div>
+
+
+        <div class="playlist" id="playlist">
+            <div class="video curent" draggable="true">
+                <video src="./media/cantec-craciun.mp4" title="Double click to play" alt="Waterfall"></video>
+                <i id="reorder" class="fas fa-grip-lines" title="Drag to move"></i>
+                <i id="trash" class="fas fa-trash-alt" title="Click to remove from playlist"></i>
+            </div>
+
+            <div class="video" draggable="true">
+                <video src="./media/ceai.mp4" title="Double click to play" alt=""></video>
+                <i id="reorder" class="fas fa-grip-lines" title="Drag to move"></i>
+                <i id="trash" class="fas fa-trash-alt" title="Click to remove from playlist"></i>
+            </div>
+
+            <div class="video" draggable="true">
+                <video src="./media/clopotei.mp4" title="Double click to play" alt=""></video>
+                <i id="reorder" class="fas fa-grip-lines" title="Drag to move"></i>
+                <i id="trash" class="fas fa-trash-alt" title="Click to remove from playlist"></i>
+            </div>
+
+            <div class="video" draggable="true">
+                <video src="./media/furtuna.mp4" title="Double click to play" alt=""></video>
+                <i id="reorder" class="fas fa-grip-lines" title="Drag to move"></i>
+                <i id="trash" class="fas fa-trash-alt" title="Click to remove from playlist"></i>
+            </div>
+
+            <div class="video" draggable="true">
+                <video src="./media/natura.mp4" title="Double click to play" alt=""></video>
+                <i id="reorder" class="fas fa-grip-lines" title="Drag to move"></i>
+                <i id="trash" class="fas fa-trash-alt" title="Click to remove from playlist"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+[
+    {
+        "videoTitle": "cantec-craciun.mp4",
+        "start": [
+            1.0,
+            4.05,
+            6.05,
+            8.68,
+            11.12,
+            13.87,
+            16.67,
+            18.73,
+            21.28,
+            24.69,
+            26.55,
+            29.28,
+            31.91,
+            34.92,
+            36.46,
+            39.32
+        ],
+        "end": [
+            4.0,
+            6.0,
+            8.63,
+            10.5,
+            13.82,
+            15.62,
+            18.68,
+            21.23,
+            24.64,
+            26.5,
+            29.23,
+            31.86, 
+            34.88,
+            36.41,
+            39.27,
+            41.39
+
+        ],
+        "content": [
+            "♫ Bells on bob-tail ring ♫",
+            "♫ Making spirits bright ♫",
+            "♫ What fun it is to ride and sing ♫",
+            "♫ A sleighing song tonight ♫",
+            "♫ Jingle bells, jingle bells ♫",
+            "♫ Jingle all the way ♫",
+            "♫ Oh, what fun it is to ride ♫",
+            "♫ In a one-horse open sleigh ♫",
+            "♫ Jingle bells, jingle bells ♫",
+            "♫ Jingle all the way ♫",
+            "♫ Oh, what fun it is to ride ♫",
+            "♫ In a one-horse open sleigh ♫",
+            "♫ Bells on bob-tail ring ♫",
+            "♫ Making spirits bright ♫",
+            "♫ What fun it is to ride and sing ♫",
+            "♫ A sleighing song tonight ♫"
+        ]
+    },
+    {
+        "videoTitle": "ceai.mp4",
+        "start": [
+            0.5
+        ],
+        "end": [
+            4.9
+        ],
+        "content": [
+            "[the sound of pouring some tea in a cup]"
+        ]
+    },
+    {
+        "videoTitle": "clopotei.mp4",
+        "start": [
+            0.5,
+            4.55,
+            7.55
+        ],
+        "end": [
+            4.5,
+            7.5,
+            12.5
+        ],
+        "content": [
+            "Wind chimes are a type of percussion instrument constructed from suspended tubes,",
+            "rods, bells or other objects that are often made of metal or wood.",
+            "They are usually hung outside of a building or residence as a visual and aural garden ornament."
+        ]
+    },
+    {
+        "videoTitle": "furtuna.mp4",
+        "start": [
+            1.5,
+            5.55,
+            9.55,
+            13.55,
+            17.55
+        ],
+        "end": [
+            5.5,
+            9.5,
+            13.5,
+            17.5,
+            21.5
+        ],
+        "content": [
+            "A storm is any disturbed state of an environment or in an astronomical body's atmosphere",
+            "especially affecting its surface, and strongly implying severe weather.",
+            "It may be marked by significant disruptions to normal conditions such as strong wind, tornadoes,",
+            "hail, thunder and lightning, heavy precipitation, heavy freezing rain, strong winds,",
+            "or wind transporting some substance through the atmosphere."
+        ]
+    },
+    {
+        "videoTitle": "natura.mp4",
+        "start": [
+            0.5
+        ],
+        "end": [
+            3.9
+        ],
+        "content": [
+            "[the sound of birds chirping]"
+        ]
+    }
+]
